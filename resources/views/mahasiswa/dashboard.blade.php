@@ -22,6 +22,16 @@
                     Kelola Data Mahasiswa
                 </a>
             </li>
+            <li>
+    <a href="/dosen" class="text-blue-600 hover:underline">
+        Kelola Data Dosen
+    </a>
+</li>
+<li>
+    <a href="/mata-kuliah" class="text-blue-600 hover:underline">
+        Kelola Mata Kuliah
+    </a>
+</li>
             <li>Pengaturan Akun</li>
         </ul>
 

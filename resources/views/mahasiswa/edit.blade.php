@@ -1,30 +1,34 @@
-@extends('layouts.app')
-@section('title', 'Edit Mahasiswa')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Mata Kuliah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 py-10">
 
-    <div class="bg-white rounded-lg shadow-sm p-6 max-w-3xl mx-auto">
-        <div class="mb-6">
-            <a href="{{ route('mahasiswa.index') }}" class="text-green-600
-hover:underline text-sm">
-             ← Kembali ke daftar
-        </a>
-        <h1 class="text-2xl font-bold text-gray-800 mt-2">Edit Mahasiswa</h1>
+<div class="max-w-5xl mx-auto bg-white p-8 rounded shadow">
+    <h1 class="text-4xl font-bold mb-8">Edit Mata Kuliah</h1>
+
+    <form action="/mata-kuliah/{{ $mataKuliah->id }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        @include('mata_kuliah.form')
+
+        <div class="mt-8 border-t pt-6">
+            <button type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded">
+                Update Data
+            </button>
+
+            <a href="/mata-kuliah"
+               class="bg-gray-300 hover:bg-gray-400 px-6 py-3 rounded ml-2">
+                Batal
+            </a>
         </div>
-
-    <form action="{{ route('mahasiswa.update', $mahasiswa->id) }}" method="POST"
-enctype="multipart/form-data" class="space-y-5">
-
-@csrf
-@method('PUT') {{-- Method Spoofing untuk Update --}}
-{{-- Memanggil Partial Form yang sama --}}
-@include('mahasiswa.form')
-
-    <div class="flex items-center gap-3 pt-4 border-t">
-    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 textwhite font-medium px-6 py-2 rounded-md">
-Perbarui Data
-    </button>
-    <a href="{{ route('mahasiswa.index') }}" class="bg-gray-200 textgray-700 px-6 py-2 rounded-md">Batal</a>
-    </div>
     </form>
-</div>
-@endsection
+</div>  
+
+</body>
+</html>
